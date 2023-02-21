@@ -57,23 +57,23 @@ function internQuestions () {
         [
             {
                 type: 'input', 
-                message: 'What is your manager name?',
+                message: 'What is your intern name?',
                 name: 'name'
             },
             {
                 type: 'input', 
-                message: 'What is your manager id?',
+                message: 'What is your intern id?',
                 name: 'id'
             },
             {
                 type: 'input', 
-                message: 'What is your manager email?',
+                message: 'What is your intern email?',
                 name: 'email',
             },
             {
                 type: 'input', 
-                message: 'What is your manager office number?',
-                name: 'officeNumber'
+                message: 'What is your intern school?',
+                name: 'school'
             },
             {
                 type: 'list', 
@@ -84,7 +84,7 @@ function internQuestions () {
         ]
     )
     .then (data=> {
-        let employee=new Manager (data.name, data.id, data.email, data.officeNumber)
+        let employee=new Intern (data.name, data.id, data.email, data.school)
         team.push (employee)
         if (data.newEmployee=='Engineer') {
             engineerQuestions () 
@@ -101,23 +101,23 @@ function engineerQuestions () {
         [
             {
                 type: 'input', 
-                message: 'What is your manager name?',
+                message: 'What is your name?',
                 name: 'name'
             },
             {
                 type: 'input', 
-                message: 'What is your manager id?',
+                message: 'What is your id?',
                 name: 'id'
             },
             {
                 type: 'input', 
-                message: 'What is your manager email?',
+                message: 'What is your email?',
                 name: 'email',
             },
             {
                 type: 'input', 
-                message: 'What is your manager office number?',
-                name: 'officeNumber'
+                message: 'What is your github username?',
+                name: 'github'
             },
             {
                 type: 'list', 
@@ -128,7 +128,7 @@ function engineerQuestions () {
         ]
     )
     .then (data=> {
-        let employee=new Manager (data.name, data.id, data.email, data.officeNumber)
+        let employee=new Engineer (data.name, data.id, data.email, data.github)
         team.push (employee)
         if (data.newEmployee=='Engineer') {
             engineerQuestions () 
@@ -165,3 +165,4 @@ function buildTeam () {
     </html>
     `)
 }
+managerQuestions()
